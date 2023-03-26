@@ -5,8 +5,8 @@ using UnityEngine;
 public class PointerScript : MonoBehaviour
 {
     public Transform target;
-    [SerializeField] Camera cam;
-    [SerializeField] Vector3 offset;
+    [SerializeField] private Camera cam;
+    [SerializeField] private Vector3 offset;
 
     void FixedUpdate()
     {

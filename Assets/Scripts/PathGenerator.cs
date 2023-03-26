@@ -26,7 +26,7 @@ public class PathGenerator : MonoBehaviour
         GameObject path = Instantiate(pathPrefab, paths);
         Vector3 position = new Vector3(0f, 0f, Random.Range(0, rows) * cellSize);
         path.transform.position = position;
-        level.spawn = new Vector3(-cellSize, 0f, position.z);
+        level.spawn = new Vector3(-cellSize, 1f, position.z);
         lastColumn = 0;
         lastRow = Mathf.FloorToInt(position.z / cellSize);
         grid[lastRow, lastColumn] = true;

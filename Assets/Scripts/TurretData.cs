@@ -7,11 +7,17 @@ public class TurretData : ScriptableObject
     [SerializeField] private int _damage, _price;
     [SerializeField] private float _fireRate, _speedOfBullet;
     [SerializeField] private string _turretName;
+    [SerializeField] private bool _canRotate;
 
     [Header("Visuals")]
     [SerializeField] private Sprite _sprite;
     [SerializeField] private GameObject _model;
 
+    public bool CanRotate
+    { 
+        get { return _canRotate; }
+        set { _canRotate = value; }
+    }
     public int Damage
     {
         get { return _damage; }

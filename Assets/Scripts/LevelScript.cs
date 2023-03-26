@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelScript : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] private Transform[] pages;
+    [SerializeField] private Transform hearts;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI levelText;
 
@@ -43,7 +45,12 @@ public class LevelScript : MonoBehaviour
         {
             for(int j = 0; j < pages[i].childCount; j++)
             {
-                if(index < turrets.Length && turrets[index].Sprite) pages[i].GetChild(j).GetChild(0).GetComponent<Image>().sprite = turrets[index].Sprite;
+                if (index < turrets.Length && turrets[index].Sprite)
+                {
+                    pages[i].GetChild(j).GetChild(0).GetComponent<Image>().sprite = turrets[index].Sprite;
+                    pages[i].GetChild(j).GetChild(1).GetComponent<TextMeshProUGUI>().text = turrets[index].Price.ToString();
+                    pages[i].GetChild(j).GetChild(2).GetComponent<TextMeshProUGUI>().text = turrets[index].TurretName;
+                }
                 index++;
             }
         }
@@ -75,13 +82,17 @@ public class LevelScript : MonoBehaviour
     public void DamageFinish()
     {
         health--;
-        if (health <= 0) EndGame();
+        if(hearts.childCount > 0) Destroy(hearts.GetChild(0).gameObject);
+        if (health <= 0)
+        {
+            Invoke("EndGame", 3f);
+        }
     }
 
     private void EndGame()
     {
-        Time.timeScale = 0f;
-
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 
     public void BuyTurret(int indexOfTurret)

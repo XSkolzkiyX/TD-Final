@@ -7,12 +7,12 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private float movementSpeed, rotationSpeed, maxHeight, minHeight;
     [SerializeField] private Camera cam;
     private Rigidbody rb;
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    private void Update()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll > 0 && transform.position.y < minHeight) scroll = 0;

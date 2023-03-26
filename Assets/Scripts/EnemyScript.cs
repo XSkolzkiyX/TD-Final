@@ -38,7 +38,7 @@ public class EnemyScript : MonoBehaviour
             }
             else
             {
-                //Finish.TakeDamage();
+                level.DamageFinish();
                 Destroy(gameObject);
             }
         }
@@ -63,7 +63,7 @@ public class EnemyScript : MonoBehaviour
     {
         if(col.transform.tag == "Bullet")
         {
-            TakeDamage(20);
+            TakeDamage(float.Parse(col.transform.name));
             Destroy(col.gameObject);
         }
     }

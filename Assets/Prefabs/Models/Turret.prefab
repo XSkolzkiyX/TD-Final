@@ -134,6 +134,7 @@ MonoBehaviour:
   speedOfBullet: 75
   firePoints: {fileID: 7320023338191296828}
   bulletPrefab: {fileID: 2959085338488451406, guid: 858f09143b7a16e4d97dbfa5fd990192, type: 3}
+  data: {fileID: 11400000, guid: c702f4cba85e6314a8bfff41d49e6c5d, type: 2}
   range: {fileID: 7320023336827947702}
 --- !u!136 &8470604404136774520
 CapsuleCollider:
