@@ -20,7 +20,11 @@ public class BuildingPlacer : MonoBehaviour
         {
             return;
         }
-        if (Input.GetMouseButtonDown(1)) needToBuild = false;
+        if (Input.GetMouseButtonDown(1)) 
+        {
+            Destroy(placer);
+            needToBuild = false; 
+        }
         if (!placer) placer = Instantiate(placerPrefab).transform;
         else
         {

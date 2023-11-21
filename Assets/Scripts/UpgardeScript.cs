@@ -15,12 +15,9 @@ public class UpgardeScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (Physics.Raycast(ray, out RaycastHit hit) && hit.transform.tag == "Turret")
             {
-                if (hit.transform.tag == "Turret")
-                {
-                    FillPanel(hit);
-                }
+                FillPanel(hit);
             }
         }
     }

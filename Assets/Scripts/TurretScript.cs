@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TurretScript : MonoBehaviour
 {
-    [SerializeField] private Transform firePoints;
+    [SerializeField] private Transform[] firePoints;
     [SerializeField] private GameObject bulletPrefab;
     public TurretData data;
     public GameObject range;
@@ -29,7 +29,7 @@ public class TurretScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (!target && col.tag is "Enemy") target = col.transform;
+        if (!target && col.tag is "Enemy") target = col.transform.GetChild(0);
     }
 
     private void OnTriggerExit(Collider col)
